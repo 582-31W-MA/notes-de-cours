@@ -276,4 +276,4 @@ Créez un nouveau dépôt sur GitHub contenant un fichier README.md, et clonez c
 
 ## Ressources
 
--   https://git-scm.com/book/fr/v2
+-   Scott Chacon, Ben Straub : [*Pro Git Book (vf)*](https://git-scm.com/book/fr/v2)
