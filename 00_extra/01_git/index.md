@@ -6,7 +6,7 @@ Git est un gestionnaire de version ; un système qui enregistre l’évolution d
 
 Git fonctionne à la manière d’un **flux d’instantanés** (ou de clichés photographiques). À chaque fois que vous validez ou enregistrez (*commit*) l’état d’un projet, Git prend un instantané du contenu de votre espace de travail, et enregistre une référence à cet instantané. Il est ensuite possible de comparer l’état du projet entre deux instantanés, ou bien rétablir le projet à l’état d’un instantané précédent.
 
-## Les trois sections de Git
+## 1. Les trois sections de Git
 
 Un projet Git (aussi appelé **dépôt**) contient trois sections principales, soit trois « endroits » où peuvent se trouver les fichiers en fonction de leur état à un moment donné : la **copie de travail** (*working copy*), la **zone d’index** (*staging area*), et le **répertoire Git** (*Git directory*).
 
@@ -16,11 +16,11 @@ L’utilisation de Git se passe normalement comme suit :
 2. Vous ajoutez les fichiers modifiés à la zone d’index avec la commande `git add`.
 3. Vous validez vos changements avec `git commit`, ce qui enregistre l’instantané dans la base de données du répertoire Git.
 
-## Démarrer un dépôt Git
+## 2. Démarrer un dépôt Git
 
 Il y a deux façons de démarrer un dépôt Git : soit **initialiser** un nouveau dépôt dans un répertoire, soit **cloner** un dépôt préexistant.
 
-### Initialiser un nouveau dépôt
+### 2.1. Initialiser un nouveau dépôt
 
 Si vous commencez un nouveau projet, ou que vous désirez adopter un gestionnaire de version pour un projet existant, il suffit de se positionner dans celui-ci avec une interface en lignes de commandes :
 
@@ -41,7 +41,7 @@ Cela crée un nouveau sous-répertoire caché[^1] nommé « .git » qui contient
 <details>
 <summary>
 
-#### Exercise
+#### 2.1.1. Exercise
 
 </summary>
 
@@ -50,7 +50,7 @@ Cela crée un nouveau sous-répertoire caché[^1] nommé « .git » qui contient
 
 </details>
 
-### Cloner un dépôt existant
+### 2.2. Cloner un dépôt existant
 
 Si vous souhaitez travailler sur un dépôt Git existant — par exemple, un devoir ou un examen distribué avec GitHub Classroom — alors il est nécessaire de **cloner** (ou télécharger[^2]) une copie de celui-ci sur votre ordinateur.
 
@@ -67,7 +67,7 @@ Ceci crée un nouveau répertoire, initialise un sous-répertoire « .git » à 
 <details>
 <summary>
 
-#### Exercise
+#### 2.2.1. Exercise
 
 </summary>
 
@@ -77,11 +77,11 @@ Attention de ne pas cloner le dépôt dans un dossier « note-de-cours », mais 
 
 </details>
 
-## Enregistrer des modifications
+## 3. Enregistrer des modifications
 
 Pour bien utiliser Git, il est important d’enregistrer ses modifications plus souvent qu’autrement. Il est recommandé de faire un instantané pour **chaque ensembles de modifications logiquement distinct**. Au minimum, enregistrez vos modifications lorsque votre programme atteint un état stable dont vous voulez garder une trace.
 
-### Cycle de vie des fichiers
+### 3.1. Cycle de vie des fichiers
 
 ![Cycle de vie des fichiers](images/cycle-de-vie-des-fichiers.png)
 
@@ -100,7 +100,7 @@ Les fichiers de la copie de travail peuvent avoir différents états selon l’�
 <details>
 <summary>
 
-#### Exercise
+#### 3.1.1. Exercise
 
 </summary>
 
@@ -109,7 +109,7 @@ Les fichiers de la copie de travail peuvent avoir différents états selon l’�
 
 </details>
 
-### Valider des modifications
+### 3.2. Valider des modifications
 
 Une fois que que la zone d’index contient tous les fichiers que vous désirez valider, il est temps d’enregistrer un instantané. La manière la plus simple est d’exécuter la commande suivante :
 
@@ -140,7 +140,7 @@ git commit -m "Corriger lien/vers/le/commentaire"
 <details>
 <summary>
 
-#### Exercise
+#### 3.2.1. Exercise
 
 </summary>
 
@@ -151,7 +151,7 @@ git commit -m "Corriger lien/vers/le/commentaire"
 
 </details>
 
-### Visualiser l’historique des validations
+### 3.3. Visualiser l’historique des validations
 
 Après avoir créé plusieurs *commits*, ou si vous avez cloné un dépôt préexistant, il est possible de visualiser l’historique des validations. Pour ce faire, on exécute la commande `git log`.
 
@@ -181,7 +181,7 @@ Par défaut, Git énumère les *commits* en ordre chronologique inversé. Les *c
 
 Vous observerez aussi que chaque *commit* est identifié par une suite de caractères unique, communément appelée Git ID, SHA ou *hash*.
 
-### Visiter une validation précédente
+### 3.4. Visiter une validation précédente
 
 Avec Git, il est possible de voyager dans le temps, et de visiter notre projet aux différentes étapes de son existence. Pour ce faire, il faut d’abord s’assurer que notre copie de travail est « propre », c’est-à-dire qu’elle ne contient aucun fichiers modifiés. Si c’est le cas, on peut exécuter la commande suivante pour rétablir notre copie de travail à un *commit* donné :
 
@@ -198,7 +198,7 @@ git checkout main
 <details>
 <summary>
 
-#### Exercise
+#### 3.4.1. Exercise
 
 </summary>
 
@@ -207,7 +207,7 @@ git checkout main
 
 </details>
 
-### Ignorer des fichiers
+### 3.5. Ignorer des fichiers
 
 Certains fichiers ne sont pas pertinents à indexer. C’est le cas, par exemple, des fichiers `.DS_Store` sur Mac, des dossiers de configuration `.vscode`, des dossiers `node_modules`, et de tous autres fichiers personnels ou confidentiels.
 
@@ -231,17 +231,17 @@ Icon
 node_modules/
 ```
 
-## Travailler avec des dépôts distants
+## 4. Travailler avec des dépôts distants
 
 Pour pouvoir collaborer sur un projet Git, il est nécessaire de savoir comment gérer les dépôts distants. Les dépôts distants sont des versions de votre projet qui sont « ailleurs » ; sur Internet, sur le réseau d’une organisation, ou même sur votre ordinateur. Collaborer avec d’autres personnes consiste à gérer ces dépôts distants, en poussant ou tirant des données depuis et vers ces dépôts quand vous souhaitez partager votre travail.
 
-### Afficher les dépôts distants
+### 4.1. Afficher les dépôts distants
 
 Pour visualiser les dépôts distants associés à un dépôt local, on utilise la commande `git remote`. Si vous exécutez `git remote` dans le présent dépôt, vous devriez voir « origin » — le nom donné par défaut au dépôt distant à partir duquel vous avez cloné votre projet Git.
 
 Vous pouvez aussi ajouter l’option `-v` à la commande `git remote` pour voir l’URL des dépôts distants.
 
-### Ajouter et retirer des dépôts distants
+### 4.2. Ajouter et retirer des dépôts distants
 
 Pour ajouter un dépôt distant à votre projet Git, il suffit d’exécuter la commande suivante à l’intérieur de votre dépôt local :
 
@@ -255,7 +255,7 @@ Pour retirer un dépôt distant, on utilise la commande suivante :
 git remote rm [nom]
 ```
 
-### Tirer et pousser son travail
+### 4.3. Tirer et pousser son travail
 
 ![Tirer et pousser son travail](images/pull-push.png)
 
@@ -266,7 +266,7 @@ Inversement, lorsque votre dépôt contient des *commits* que vous désirez part
 <details>
 <summary>
 
-#### Exercise
+#### 4.3.1. Exercise
 
 </summary>
 
@@ -274,6 +274,6 @@ Créez un nouveau dépôt sur GitHub contenant un fichier README.md, et clonez c
 
 </details>
 
-## Ressources
+## 5. Ressources
 
 -   Scott Chacon, Ben Straub : [*Pro Git Book (vf)*](https://git-scm.com/book/fr/v2)
