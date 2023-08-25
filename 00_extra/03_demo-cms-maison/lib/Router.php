@@ -51,20 +51,16 @@ class Router
 	{
 		// Stocke les différentes informations liées au URI.
 		$uri = $_SERVER['REQUEST_URI'];
-		$path = parse_url($uri)["path"];
-		$path_segments = explode("/", $path);
-		$slug = end($path_segments);
+		$current_path = parse_url($uri)["path"];
 
 		// Trouve la route qui correspond au présent chemin.
-		$current_route = $this->matchRoute($path);
+		$current_route = $this->matchRoute($current_path);
 
 
 		if ($current_route) {
-			// Ajoute le slug au paramètre de la route afin
-			// de pouvoir les passer au contrôleur. Le slug est
-			// nécessaire afin de retrouver les données de notre
-			// route.
-			$current_route->params["slug"] = $slug;
+			// Ajoute le chemin de la présente route aux paramètres de
+			// la route afin que le contrôleur y aille accès.
+			$current_route->params["path"] = $current_path;
 
 			// Importe le contrôleur selon le nom du contrôleur
 			// spécifié dans les paramètres de la présente route.
