@@ -6,7 +6,7 @@ Pour installer WordPress, il suffit de télécharger le dossier `wordpress` à l
 
 WordPress stocke le contenu de votre site Web dans une base de données MySQL ou MariaDB. La [documentation à ce sujet](https://developer.wordpress.org/advanced-administration/before-install/creating-database/) explique comment créer cette base de données selon l'outil que vous préférez (phpMyAdmin, cPanel, Plesk, etc.).
 
-Pour ce cours, il est suggérer d'installer et de configurer MySQL à travers votre interface en ligne de commande, ce qui permet de simplifier votre environnement de développement, et d'éviter MAMP, XAMPP, et compagnie.
+Pour ce cours, il est suggéré d'installer et de configurer MySQL à travers votre interface en ligne de commande, ce qui permet de simplifier votre environnement de développement, et d'éviter MAMP, XAMPP, et compagnie.
 
 ### Mac
 
@@ -56,7 +56,7 @@ exit
 
 ## Configurer WordPress
 
-Il reste à configurer WordPress afin d'utiliser la base de données tout juste créée. Pour ce faire, changer le fichier `wp-config-sample.php` pour `wp-config.php`. Modifiez ensuite les lignes suivantes :
+Il reste à configurer WordPress afin d'utiliser la base de données tout juste créée. Pour ce faire, changer le nom du fichier `wp-config-sample.php` pour `wp-config.php`. Modifiez ensuite les lignes suivantes :
 
 ```php
 define( 'DB_NAME', 'database_name_here' ); // Mettre comme valeur 'wpdb'
